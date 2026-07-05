@@ -1,0 +1,604 @@
+<!doctype html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سنديان للزهور | تنسيق ورود وباقات فاخرة في مكة المكرمة</title>
+<meta name="description" content="سنديان للزهور في مكة المكرمة. تنسيق باقات الورد، بوكيهات، صناديق ورد، وتجهيز المناسبات والأعراس. تقييم 4.6 على خرائط جوجل. اطلب عبر الواتساب.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#faf5ee;
+  --cream:#f3ebe0;
+  --paper:#fffaf4;
+  --ink:#2a211c;
+  --ink-soft:#5c4f45;
+  --rose:#b8465f;
+  --rose-deep:#8f2f45;
+  --blush:#e9c7c1;
+  --sage:#6f7a5a;
+  --gold:#b08a4f;
+  --line:color-mix(in oklch, var(--ink) 12%, transparent);
+  --shadow-soft:0 24px 60px -30px rgba(60,35,30,.45);
+  --ease:cubic-bezier(.32,.72,0,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Tajawal',system-ui,sans-serif;
+  background:var(--ivory);
+  color:var(--ink);
+  line-height:1.85;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+.en{font-family:'Cormorant Garamond',serif;direction:ltr;unicode-bidi:isolate}
+h1,h2,h3{font-family:'El Messiri',serif;line-height:1.42;font-weight:600;letter-spacing:normal}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ---------- grain + progress ---------- */
+.grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
+#prog{position:fixed;inset-block-start:0;inset-inline:0;height:3px;z-index:70;
+  background:linear-gradient(90deg,var(--rose),var(--gold));
+  transform:scaleX(0);transform-origin:right;}
+@media (prefers-reduced-motion:no-preference){
+  #prog{animation:grow linear;animation-timeline:scroll(root);}
+}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* ---------- nav ---------- */
+nav{position:fixed;inset-block-start:0;inset-inline:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px clamp(18px,5vw,64px);
+  transition:background .5s var(--ease),backdrop-filter .5s var(--ease),padding .5s var(--ease),box-shadow .5s var(--ease);}
+nav.solid{background:color-mix(in oklch,var(--paper) 82%,transparent);
+  backdrop-filter:blur(16px) saturate(1.2);box-shadow:0 1px 0 var(--line);padding-block:12px;}
+.brand{display:flex;align-items:center;gap:12px;font-family:'El Messiri',serif;font-weight:700;font-size:1.35rem;color:var(--ink)}
+.brand .mark{width:38px;height:38px;flex:0 0 auto;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,var(--blush),var(--rose) 75%);
+  display:grid;place-items:center;color:#fff;font-size:1.1rem;box-shadow:inset 0 1px 2px rgba(255,255,255,.4)}
+.navlinks{display:flex;gap:30px;align-items:center}
+.navlinks a{font-size:.98rem;color:var(--ink-soft);position:relative;transition:color .4s var(--ease)}
+.navlinks a::after{content:"";position:absolute;inset-block-end:-6px;inset-inline-start:0;height:2px;width:0;background:var(--rose);transition:width .4s var(--ease)}
+.navlinks a:hover{color:var(--ink)}.navlinks a:hover::after{width:100%}
+.nav-cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);
+  padding:11px 12px 11px 20px;border-radius:100px;font-weight:500;font-size:.95rem;transition:transform .4s var(--ease),background .4s var(--ease)}
+.nav-cta .ic{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;transition:transform .4s var(--ease)}
+.nav-cta:hover{transform:scale(.98);background:var(--rose-deep)}
+.nav-cta:hover .ic{transform:translate(-3px,-1px) scale(1.05)}
+.burger{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:50%;background:transparent;cursor:pointer;position:relative}
+.burger span{position:absolute;inset-inline:12px;height:2px;background:var(--ink);transition:transform .45s var(--ease),opacity .3s var(--ease);inset-block-start:calc(50% - 1px)}
+.burger span:nth-child(1){transform:translateY(-6px)}
+.burger span:nth-child(3){transform:translateY(6px)}
+.burger.on span:nth-child(1){transform:rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:rotate(-45deg)}
+
+/* mobile panel */
+.mpanel{position:fixed;inset:0;z-index:45;background:color-mix(in oklch,var(--paper) 92%,transparent);
+  backdrop-filter:blur(22px);display:flex;flex-direction:column;justify-content:center;gap:8px;
+  padding:0 34px;inset-inline-start:auto;inset-inline-end:0;width:min(86vw,420px);
+  transform:translateX(106%);transition:transform .6s var(--ease);box-shadow:var(--shadow-soft)}
+.mpanel.open{transform:translateX(0)}
+.mpanel a{font-family:'El Messiri',serif;font-size:1.7rem;color:var(--ink);padding:10px 0;border-block-end:1px solid var(--line);
+  opacity:0;transform:translateY(18px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.mpanel.open a{opacity:1;transform:none}
+.mpanel.open a:nth-child(1){transition-delay:.1s}.mpanel.open a:nth-child(2){transition-delay:.16s}
+.mpanel.open a:nth-child(3){transition-delay:.22s}.mpanel.open a:nth-child(4){transition-delay:.28s}
+.mpanel.open a:nth-child(5){transition-delay:.34s}.mpanel.open a:nth-child(6){transition-delay:.4s}
+
+/* ---------- hero ---------- */
+.hero{min-height:100dvh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;
+  gap:clamp(20px,4vw,60px);padding:120px clamp(18px,5vw,64px) 60px;position:relative}
+.hero-copy{position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:color-mix(in oklch,var(--rose) 12%,var(--paper));
+  color:var(--rose-deep);border:1px solid color-mix(in oklch,var(--rose) 25%,transparent);
+  border-radius:100px;padding:7px 15px;font-size:.72rem;font-weight:700;letter-spacing:.04em;margin-bottom:26px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--rose);box-shadow:0 0 0 4px color-mix(in oklch,var(--rose) 22%,transparent)}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);line-height:1.14;font-weight:700;color:var(--ink)}
+.hero h1 .accent{color:var(--rose-deep);font-style:italic;font-family:'El Messiri',serif}
+.kw{display:inline-block;overflow:hidden;vertical-align:bottom}
+.kw>span{display:inline-block;transform:translateY(110%);animation:kwrise .9s var(--ease) forwards}
+.kw:nth-child(1)>span{animation-delay:.15s}.kw:nth-child(2)>span{animation-delay:.3s}.kw:nth-child(3)>span{animation-delay:.45s}
+@keyframes kwrise{to{transform:none}}
+.hero p.sub{margin:26px 0 34px;font-size:clamp(1.02rem,1.4vw,1.18rem);color:var(--ink-soft);max-width:46ch}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:12px;border-radius:100px;font-weight:600;font-size:1rem;
+  padding:14px 14px 14px 26px;transition:transform .4s var(--ease),background .4s var(--ease),color .4s var(--ease);cursor:pointer;border:none}
+.btn .ic{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;transition:transform .45s var(--ease)}
+.btn-primary{background:var(--rose-deep);color:#fff}
+.btn-primary .ic{background:rgba(255,255,255,.16)}
+.btn-primary:hover{transform:scale(.98);background:var(--ink)}
+.btn-primary:hover .ic{transform:translate(-4px,-1px) scale(1.05)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line);padding-inline:26px}
+.btn-ghost:hover{background:var(--paper);transform:scale(.98)}
+.rating-inline{display:flex;align-items:center;gap:10px;margin-top:30px;color:var(--ink-soft);font-size:.95rem}
+.stars{color:var(--gold);letter-spacing:2px}
+.rating-inline b{color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:1.3rem}
+
+/* hero visual: z-axis cascade of two framed photos */
+.hero-visual{position:relative;height:min(78vh,680px);z-index:1}
+.frame{position:absolute;border-radius:26px;overflow:hidden;background:var(--paper);padding:8px;box-shadow:var(--shadow-soft)}
+.frame img{width:100%;height:100%;object-fit:cover;border-radius:19px}
+.frame.big{inset-inline-end:2%;inset-block-start:4%;width:70%;height:82%;z-index:2}
+.frame.big .kbwrap{overflow:hidden;border-radius:19px;height:100%}
+.frame.big img{transform:scale(1.05)}
+@media (prefers-reduced-motion:no-preference){
+  .frame.big img{animation:kb 24s var(--ease) infinite alternate}
+}
+@keyframes kb{from{transform:scale(1.05)}to{transform:scale(1.18) translate(2%,-1.4%)}}
+.frame.small{inset-inline-start:0;inset-block-end:0;width:46%;height:44%;z-index:3;transform:rotate(-3deg)}
+.hero-badge{position:absolute;inset-block-start:-2%;inset-inline-start:6%;z-index:4;
+  background:var(--paper);border-radius:18px;padding:14px 18px;box-shadow:var(--shadow-soft);
+  display:flex;align-items:center;gap:12px;border:1px solid var(--line)}
+.hero-badge .n{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--rose-deep);line-height:1}
+.hero-badge small{display:block;font-size:.72rem;color:var(--ink-soft)}
+.petal{position:absolute;pointer-events:none;z-index:1;opacity:.5}
+@media (prefers-reduced-motion:no-preference){
+  .petal{animation:drift linear infinite}
+}
+@keyframes drift{0%{transform:translateY(-10%) rotate(0)}100%{transform:translateY(110vh) rotate(320deg)}}
+
+/* ---------- sections ---------- */
+section{padding:clamp(72px,10vw,140px) clamp(18px,5vw,64px)}
+.sec-head{max-width:720px;margin-bottom:56px}
+.sec-head .eyebrow{margin-bottom:18px}
+.sec-head h2{font-size:clamp(2rem,4.6vw,3.3rem);color:var(--ink);text-wrap:balance}
+.sec-head p{margin-top:18px;color:var(--ink-soft);font-size:1.08rem;text-wrap:pretty}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;background:var(--cream)}
+.about-media{border-radius:28px;overflow:hidden;background:var(--paper);padding:10px;box-shadow:var(--shadow-soft)}
+.about-media img{border-radius:20px;width:100%;height:clamp(320px,46vw,520px);object-fit:cover}
+.about h2{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:18px}
+.about p{color:var(--ink-soft);margin-bottom:16px}
+.about .mini{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px}
+.mini .item{border-inline-start:2px solid var(--rose);padding-inline-start:14px}
+.mini .item b{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--ink);display:block;line-height:1}
+.mini .item span{font-size:.86rem;color:var(--ink-soft)}
+
+/* collections */
+.grid-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:8px;
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft)}
+.card .inner{border-radius:18px;background:linear-gradient(180deg,color-mix(in oklch,var(--rose) 5%,var(--paper)),var(--paper));
+  padding:28px 24px 30px;height:100%;box-shadow:inset 0 1px 1px rgba(255,255,255,.6)}
+.card .cicon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;
+  background:color-mix(in oklch,var(--rose) 12%,var(--paper));color:var(--rose-deep)}
+.card h3{font-size:1.35rem;margin-bottom:8px}
+.card p{color:var(--ink-soft);font-size:.96rem}
+.card .top-accent{position:absolute;inset-block-start:8px;inset-inline:24px;height:2px;background:var(--rose);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.card:hover .top-accent{transform:scaleX(1)}
+
+/* occasions band */
+.occasions{background:var(--ink);color:var(--paper)}
+.occasions .sec-head h2{color:var(--paper)}
+.occasions .sec-head p{color:color-mix(in oklch,var(--paper) 72%,transparent)}
+.occasions .eyebrow{background:rgba(255,255,255,.06);color:var(--blush);border-color:rgba(255,255,255,.16)}
+.occ-row{display:flex;flex-wrap:wrap;gap:14px}
+.occ-chip{border:1px solid rgba(255,255,255,.16);border-radius:100px;padding:12px 22px;font-size:1.02rem;
+  transition:background .4s var(--ease),transform .4s var(--ease);background:rgba(255,255,255,.03)}
+.occ-chip:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
+
+/* gallery masonry */
+.masonry{columns:3;column-gap:16px}
+.masonry .shot{break-inside:avoid;margin-bottom:16px;border-radius:18px;overflow:hidden;cursor:pointer;position:relative;background:var(--cream)}
+.masonry .shot img{width:100%;transition:transform .7s var(--ease)}
+.masonry .shot:hover img{transform:scale(1.06)}
+.masonry .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(40,25,20,.35));opacity:0;transition:opacity .5s var(--ease)}
+.masonry .shot:hover::after{opacity:1}
+
+/* why-us */
+.why{background:var(--cream)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.why-item{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 22px}
+.why-item .wi{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;background:color-mix(in oklch,var(--sage) 14%,var(--paper));color:var(--sage)}
+.why-item h3{font-size:1.15rem;margin-bottom:8px}
+.why-item p{color:var(--ink-soft);font-size:.92rem}
+
+/* order form */
+.order{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,70px);align-items:start;background:var(--paper)}
+.order-media{border-radius:28px;overflow:hidden;padding:10px;background:var(--cream);box-shadow:var(--shadow-soft)}
+.order-media img{border-radius:20px;width:100%;height:clamp(340px,50vw,560px);object-fit:cover}
+.form-wrap{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:clamp(26px,4vw,42px);box-shadow:var(--shadow-soft)}
+.form-wrap h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:8px}
+.form-wrap>p{color:var(--ink-soft);margin-bottom:26px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.9rem;font-weight:500;margin-bottom:8px;color:var(--ink)}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:var(--ivory);
+  border-radius:14px;padding:13px 16px;font-family:inherit;font-size:1rem;color:var(--ink);transition:border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--rose);box-shadow:0 0 0 3px color-mix(in oklch,var(--rose) 16%,transparent)}
+.field textarea{resize:vertical;min-height:96px;field-sizing:content}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.err{color:var(--rose-deep);font-size:.85rem;margin-top:10px;display:none}
+.err.show{display:block}
+.submit{width:100%;justify-content:center;margin-top:8px}
+.submit .ic{background:rgba(255,255,255,.16)}
+
+/* contact */
+.contact{background:var(--ink);color:var(--paper)}
+.contact .sec-head h2{color:var(--paper)}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ccard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:26px;transition:background .4s var(--ease),transform .4s var(--ease)}
+.ccard:hover{background:rgba(255,255,255,.08);transform:translateY(-4px)}
+.ccard .ci{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px;background:rgba(255,255,255,.08);color:var(--blush)}
+.ccard h3{color:var(--paper);font-size:1.1rem;margin-bottom:6px}
+.ccard p,.ccard a{color:color-mix(in oklch,var(--paper) 74%,transparent);font-size:.95rem}
+.ccard a:hover{color:var(--blush)}
+.ltr{direction:ltr;text-align:start;font-family:'Cormorant Garamond',serif;letter-spacing:.02em}
+
+/* footer */
+footer{background:#1c1512;color:color-mix(in oklch,var(--paper) 70%,transparent);padding:48px clamp(18px,5vw,64px);text-align:center}
+footer .fbrand{font-family:'El Messiri',serif;color:var(--paper);font-size:1.5rem;margin-bottom:10px}
+footer .credit{margin-top:18px;font-size:.85rem}
+footer .credit a{color:var(--blush)}
+footer .sep{width:60px;height:1px;background:rgba(255,255,255,.2);margin:20px auto}
+
+/* FAB */
+.fab{position:fixed;inset-block-end:22px;inset-inline-end:22px;z-index:55;width:60px;height:60px;border-radius:50%;
+  background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.6)}
+.fab svg{width:32px;height:32px}
+.fab::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25d366;z-index:-1}
+@media (prefers-reduced-motion:no-preference){.fab::before{animation:pulse 2.4s ease-out infinite}}
+@keyframes pulse{0%{transform:scale(1);opacity:.6}70%{transform:scale(1.7);opacity:0}100%{opacity:0}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1!important;transform:none!important}
+  .kw>span{transform:none!important;animation:none!important}
+  .frame.big img{animation:none!important}
+  .petal{display:none!important}
+}
+
+/* responsive */
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr;gap:40px}
+  .hero-visual{height:min(70vh,540px);order:-1}
+  .about,.order{grid-template-columns:1fr}
+  .grid-cards{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .masonry{columns:2}
+}
+@media (max-width:600px){
+  .navlinks,.nav-cta{display:none}
+  .burger{display:block}
+  .grid-cards{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .masonry{columns:1}
+  .two{grid-template-columns:1fr}
+  .hero{padding-inline:18px}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div id="prog"></div>
+
+<nav id="nav">
+  <a href="#top" class="brand"><span class="mark">✿</span> سنديان للزهور</a>
+  <div class="navlinks">
+    <a href="#about">عن المحل</a>
+    <a href="#collections">تشكيلاتنا</a>
+    <a href="#gallery">أعمالنا</a>
+    <a href="#why">لماذا نحن</a>
+    <a href="#order">اطلب باقتك</a>
+  </div>
+  <a class="nav-cta" href="https://wa.me/966536779696?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B7%D9%84%D8%A8%20%D8%A8%D8%A7%D9%82%D8%A9%20%D9%88%D8%B1%D8%AF" target="_blank" rel="noopener">
+    تواصل معنا <span class="ic">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </span>
+  </a>
+  <button class="burger" id="burger" aria-label="القائمة"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mpanel" id="mpanel">
+  <a href="#about">عن المحل</a>
+  <a href="#collections">تشكيلاتنا</a>
+  <a href="#gallery">أعمالنا</a>
+  <a href="#why">لماذا نحن</a>
+  <a href="#order">اطلب باقتك</a>
+  <a href="https://wa.me/966536779696" target="_blank" rel="noopener">واتساب مباشر</a>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="petal" style="inset-inline-start:12%;font-size:20px;animation-duration:15s;animation-delay:0s">🌸</div>
+  <div class="petal" style="inset-inline-start:44%;font-size:14px;animation-duration:20s;animation-delay:5s">🌸</div>
+  <div class="petal" style="inset-inline-end:20%;font-size:18px;animation-duration:17s;animation-delay:9s">🌸</div>
+  <div class="hero-copy">
+    <span class="eyebrow"><span class="dot"></span> مكة المكرمة · متجر زهور</span>
+    <h1>
+      <span class="kw"><span>باقات</span></span>
+      <span class="accent kw"><span>تُروى</span></span>
+      <span class="kw"><span>بالورد</span></span>
+      وتصل بأجمل صورة.
+    </h1>
+    <p class="sub">سنديان للزهور في مكة المكرمة. تنسيق باقات فاخرة، بوكيهات، صناديق ورد، وتجهيز الأعراس والمناسبات بلمسة تليق بالمناسبة، مع توصيل داخل مكة.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#order">
+        اطلب باقتك
+        <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span>
+      </a>
+      <a class="btn btn-ghost" href="#collections">شاهد تشكيلاتنا</a>
+    </div>
+    <div class="rating-inline">
+      <span class="stars">★★★★★</span>
+      <span><b class="en">4.6</b> · تقييم عملائنا على خرائط جوجل (<span class="en">437</span> مراجعة)</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-badge">
+      <div class="n en">4.6</div>
+      <div><small>تقييم جوجل</small><small style="color:var(--gold)">★★★★★</small></div>
+    </div>
+    <div class="frame big"><div class="kbwrap"><img src="assets/img/p02.jpg" alt="باقة ورد فاخرة من سنديان للزهور"></div></div>
+    <div class="frame small"><img src="assets/img/p10.jpg" alt="بوكيه ورد ملوّن"></div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-media rv"><img src="assets/img/p01.jpg" alt="تنسيق ورد أحمر من سنديان للزهور"></div>
+  <div class="rv d1">
+    <span class="eyebrow"><span class="dot"></span> عن سنديان</span>
+    <h2>ورد يُختار بعناية، وتنسيق يُحكى عنه</h2>
+    <p>في سنديان للزهور نؤمن أن الباقة ليست مجرد ورد، بل رسالة. نختار أزهارنا الطازجة بعناية وننسّقها بأسلوب راقٍ يناسب كل مناسبة، من الهدية البسيطة إلى تجهيز الأعراس الكاملة.</p>
+    <p>خدمتنا في مكة المكرمة نالت ثقة عملائنا بتقييم عالٍ على خرائط جوجل، ونحرص على أن يصل كل طلب بأجمل صورة وفي الوقت المناسب.</p>
+    <div class="mini">
+      <div class="item"><b class="en">4.6</b><span>تقييم جوجل</span></div>
+      <div class="item"><b class="en">437</b><span>مراجعة موثّقة</span></div>
+      <div class="item"><b>مكة</b><span>توصيل داخل المدينة</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIONS -->
+<section id="collections">
+  <div class="sec-head rv">
+    <span class="eyebrow"><span class="dot"></span> تشكيلاتنا</span>
+    <h2>باقات وتشكيلات لكل مناسبة</h2>
+    <p>اختر من بين تشكيلاتنا المتنوعة، أو تواصل معنا لتصميم باقة خاصة حسب ذوقك ومناسبتك.</p>
+  </div>
+  <div class="grid-cards">
+    <div class="card rv"><span class="top-accent"></span><div class="inner">
+      <div class="cicon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c2 2.5 2 5 0 7-2-2-2-4.5 0-7zM12 10c2.5-2 5-2 7 0-2.5 2-4.5 2-7 0zM12 10c-2.5-2-5-2-7 0 2.5 2 4.5 2 7 0zM12 10v11"/></svg></div>
+      <h3>باقات العروس</h3><p>باقات زفاف مصمّمة بأناقة تليق بيومك المميز، بألوان وتنسيقات تختارينها معنا.</p>
+    </div></div>
+    <div class="card rv d1"><span class="top-accent"></span><div class="inner">
+      <div class="cicon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="3"/><path d="M12 12v9M9 21h6M6 6l1.5 1.5M18 6l-1.5 1.5"/></svg></div>
+      <h3>بوكيهات الورد</h3><p>بوكيهات يدوية بأنواع ورد طازجة وتغليف راقٍ، مناسبة للإهداء في كل وقت.</p>
+    </div></div>
+    <div class="card rv d2"><span class="top-accent"></span><div class="inner">
+      <div class="cicon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M4 12h16M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
+      <h3>صناديق الورد</h3><p>صناديق ورد فاخرة منسّقة بعناية، هدية أنيقة تدوم وتترك أثراً جميلاً.</p>
+    </div></div>
+    <div class="card rv"><span class="top-accent"></span><div class="inner">
+      <div class="cicon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6"/></svg></div>
+      <h3>تجهيز المناسبات</h3><p>تنسيق كامل لقاعات الأفراح والمناسبات، من ممرات الدخول إلى الكوش والطاولات.</p>
+    </div></div>
+    <div class="card rv d1"><span class="top-accent"></span><div class="inner">
+      <div class="cicon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
+      <h3>باقات التعازي</h3><p>تنسيقات هادئة ومحترمة تُعبّر عن مواساتك، تُجهّز وتُرسل بكل خصوصية واحترام.</p>
+    </div></div>
+    <div class="card rv d2"><span class="top-accent"></span><div class="inner">
+      <div class="cicon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+      <h3>اشتراكات دورية</h3><p>باقة طازجة تصلك بشكل منتظم لبيتك أو مكتبك، ننسّقها لك حسب اختيارك.</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- OCCASIONS -->
+<section class="occasions">
+  <div class="sec-head rv">
+    <span class="eyebrow"><span class="dot"></span> لكل مناسبة ورد</span>
+    <h2>نُنسّق لحظاتك المميزة</h2>
+    <p>مهما كانت المناسبة، عندنا التنسيق الذي يليق بها.</p>
+  </div>
+  <div class="occ-row">
+    <span class="occ-chip rv">أعراس وزفاف</span>
+    <span class="occ-chip rv d1">مواليد</span>
+    <span class="occ-chip rv d2">تخرّج</span>
+    <span class="occ-chip rv d3">خطوبة</span>
+    <span class="occ-chip rv">هدايا</span>
+    <span class="occ-chip rv d1">شكر وتقدير</span>
+    <span class="occ-chip rv d2">تعازي</span>
+    <span class="occ-chip rv d3">افتتاحات</span>
+    <span class="occ-chip rv">مناسبات رسمية</span>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="sec-head rv">
+    <span class="eyebrow"><span class="dot"></span> أعمالنا</span>
+    <h2>لمحة من تنسيقاتنا</h2>
+    <p>صور حقيقية من أعمال سنديان للزهور. اضغط أي صورة لعرضها بحجم أكبر.</p>
+  </div>
+  <div class="masonry" id="masonry">
+    <div class="shot rv" data-full="assets/img/p02.jpg"><img src="assets/img/p02.jpg" alt="باقة ورد وردية وزنابق"></div>
+    <div class="shot rv d1" data-full="assets/img/p10.jpg"><img src="assets/img/p10.jpg" alt="بوكيه ورد ملوّن"></div>
+    <div class="shot rv d2" data-full="assets/img/p03.jpg"><img src="assets/img/p03.jpg" alt="كيكة زفاف مع تنسيق ورد"></div>
+    <div class="shot rv" data-full="assets/img/p11.jpg"><img src="assets/img/p11.jpg" alt="بوكيه ورد أصفر"></div>
+    <div class="shot rv d1" data-full="assets/img/p07.jpg"><img src="assets/img/p07.jpg" alt="كوشة أعراس بتنسيق ورد"></div>
+    <div class="shot rv d2" data-full="assets/img/p01.jpg"><img src="assets/img/p01.jpg" alt="باقة ورد أحمر"></div>
+    <div class="shot rv" data-full="assets/img/p05.jpg"><img src="assets/img/p05.jpg" alt="تجهيز قاعة أفراح"></div>
+    <div class="shot rv d1" data-full="assets/img/p09.jpg"><img src="assets/img/p09.jpg" alt="تنسيق ورد بنفسجي"></div>
+    <div class="shot rv d2" data-full="assets/img/p06.jpg"><img src="assets/img/p06.jpg" alt="كوشة مناسبات"></div>
+    <div class="shot rv" data-full="assets/img/p04.jpg"><img src="assets/img/p04.jpg" alt="تنسيق طاولات المناسبات"></div>
+    <div class="shot rv d1" data-full="assets/img/p08.jpg"><img src="assets/img/p08.jpg" alt="محل سنديان للزهور مكة"></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="sec-head rv">
+    <span class="eyebrow"><span class="dot"></span> لماذا سنديان</span>
+    <h2>ثقة عملائنا هي ورودنا الأجمل</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-item rv">
+      <div class="wi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l2.4 5 5.6.8-4 3.9 1 5.5L12 20l-5 2.6 1-5.5-4-3.9 5.6-.8z"/></svg></div>
+      <h3>تقييم موثوق</h3><p>تقييم 4.6 على خرائط جوجل من مئات العملاء في مكة.</p>
+    </div>
+    <div class="why-item rv d1">
+      <div class="wi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>ورد طازج</h3><p>نختار أزهارنا بعناية لنقدّم تنسيقاً يبقى نضراً لأطول وقت.</p>
+    </div>
+    <div class="why-item rv d2">
+      <div class="wi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="1" y="6" width="15" height="11" rx="2"/><path d="M16 9h4l3 3v5h-7zM6 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM19 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div>
+      <h3>توصيل داخل مكة</h3><p>نوصّل طلبك في الوقت المناسب وبأجمل تغليف.</p>
+    </div>
+    <div class="why-item rv d3">
+      <div class="wi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c2 2.5 2 5 0 7-2-2-2-4.5 0-7zM5 10c2.5-2 5-2 7 0-2.5 2-4.5 2-7 0zM12 10c2.5-2 5-2 7 0-2.5 2-4.5 2-7 0z"/></svg></div>
+      <h3>تنسيق راقٍ</h3><p>لمسة أنيقة في كل باقة، ننسّقها لتليق بذوقك ومناسبتك.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section class="order" id="order">
+  <div class="order-media rv"><img src="assets/img/p11.jpg" alt="بوكيه ورد من سنديان للزهور"></div>
+  <div class="form-wrap rv d1">
+    <span class="eyebrow"><span class="dot"></span> اطلب باقتك</span>
+    <h2>جهّز طلبك في دقيقة</h2>
+    <p>عبّئ التفاصيل وسنكمل معك الطلب مباشرة عبر الواتساب.</p>
+    <form id="orderForm" novalidate>
+      <div class="field">
+        <label for="fname">الاسم</label>
+        <input id="fname" type="text" placeholder="اسمك الكريم" autocomplete="name">
+      </div>
+      <div class="two">
+        <div class="field">
+          <label for="ftype">نوع الطلب</label>
+          <select id="ftype">
+            <option value="باقة عروس">باقة عروس</option>
+            <option value="بوكيه ورد">بوكيه ورد</option>
+            <option value="صندوق ورد">صندوق ورد</option>
+            <option value="تجهيز مناسبة">تجهيز مناسبة</option>
+            <option value="باقة تعزية">باقة تعزية</option>
+            <option value="اشتراك دوري">اشتراك دوري</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fdate">التاريخ المطلوب</label>
+          <input id="fdate" type="date">
+        </div>
+      </div>
+      <div class="field">
+        <label for="fnotes">ملاحظات</label>
+        <textarea id="fnotes" placeholder="اللون المفضّل، المناسبة، عنوان التوصيل..."></textarea>
+      </div>
+      <div class="err" id="ferr">الرجاء تعبئة الاسم والملاحظات قبل الإرسال.</div>
+      <button type="submit" class="btn btn-primary submit">
+        إرسال عبر الواتساب
+        <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="sec-head rv">
+    <span class="eyebrow"><span class="dot"></span> تواصل معنا</span>
+    <h2>سنديان قريبٌ منك في مكة</h2>
+  </div>
+  <div class="contact-grid">
+    <a class="ccard rv" href="tel:0536779696">
+      <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2H7a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.2-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2z"/></svg></div>
+      <h3>اتصل بنا</h3>
+      <p class="ltr">0536 779 696</p>
+    </a>
+    <a class="ccard rv d1" href="https://wa.me/966536779696?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B7%D9%84%D8%A8%20%D8%A8%D8%A7%D9%82%D8%A9%20%D9%88%D8%B1%D8%AF" target="_blank" rel="noopener">
+      <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.5c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.1 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg></div>
+      <h3>واتساب</h3>
+      <p class="ltr">0536 779 696</p>
+    </a>
+    <a class="ccard rv d2" href="https://www.google.com/maps/place/%D8%B3%D9%86%D8%AF%D9%8A%D8%A7%D9%86+%D9%84%D9%84%D8%B2%D9%87%D9%88%D8%B1/@21.3768737,39.7918083,17z" target="_blank" rel="noopener">
+      <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <h3>الموقع</h3>
+      <p>مقابل الكترو، حي الشوقية، مكة المكرمة</p>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="fbrand">✿ سنديان للزهور</div>
+  <p>متجر زهور في مكة المكرمة · تنسيق باقات وتجهيز مناسبات</p>
+  <div class="sep"></div>
+  <p class="credit">صُمّم بواسطة <a href="https://wa.me/966505989304" target="_blank" rel="noopener">Ali</a></p>
+</footer>
+
+<a class="fab" href="https://wa.me/966536779696?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B7%D9%84%D8%A8%20%D8%A8%D8%A7%D9%82%D8%A9%20%D9%88%D8%B1%D8%AF" target="_blank" rel="noopener" aria-label="واتساب">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.5c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.1 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+<!-- lightbox -->
+<div id="lb" style="position:fixed;inset:0;z-index:80;background:rgba(20,12,10,.9);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out">
+  <img id="lbimg" style="max-width:92vw;max-height:88vh;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.5)" alt="">
+</div>
+
+<script>
+(function(){
+  try{
+    // nav solidify
+    var nav=document.getElementById('nav');
+    var onScroll=function(){ nav.classList.toggle('solid', window.scrollY>40); };
+    onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+    // burger
+    var burger=document.getElementById('burger'), mp=document.getElementById('mpanel');
+    burger.addEventListener('click',function(){
+      var open=mp.classList.toggle('open'); burger.classList.toggle('on',open);
+    });
+    mp.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mp.classList.remove('open');burger.classList.remove('on');});});
+
+    // reveal
+    var els=document.querySelectorAll('.rv');
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(en){
+        en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+      },{threshold:.12,rootMargin:'0px 0px -7% 0px'});
+      els.forEach(function(e){io.observe(e);});
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},2600);
+
+    // lightbox
+    var lb=document.getElementById('lb'), lbi=document.getElementById('lbimg');
+    document.querySelectorAll('.shot').forEach(function(s){
+      s.addEventListener('click',function(){ lbi.src=s.getAttribute('data-full'); lb.style.display='flex'; });
+    });
+    lb.addEventListener('click',function(){ lb.style.display='none'; lbi.src=''; });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'){lb.style.display='none';lbi.src='';} });
+
+    // order form -> whatsapp
+    var f=document.getElementById('orderForm'), err=document.getElementById('ferr');
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var name=document.getElementById('fname').value.trim();
+      var type=document.getElementById('ftype').value;
+      var date=document.getElementById('fdate').value;
+      var notes=document.getElementById('fnotes').value.trim();
+      if(!name || !notes){ err.classList.add('show'); return; }
+      err.classList.remove('show');
+      var msg='السلام عليكم، أرغب بطلب من سنديان للزهور.\n'
+        +'الاسم: '+name+'\n'
+        +'نوع الطلب: '+type+'\n'
+        +(date?('التاريخ المطلوب: '+date+'\n'):'')
+        +'ملاحظات: '+notes;
+      window.open('https://wa.me/966536779696?text='+encodeURIComponent(msg),'_blank');
+    });
+  }catch(e){ document.querySelectorAll('.rv').forEach(function(x){x.classList.add('in');}); }
+})();
+</script>
+</body>
+</html>
